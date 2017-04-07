@@ -1,0 +1,125 @@
+% Formatvorlage f�r studentische Arbeiten der Arbeitsgruppe Software Systems
+% Engineering am Institut f�r Informatik der Universit�t Hildesheim
+%   erstellt von Christopher Voges, 28.04.2016
+%   https://sse.uni-hildesheim.de/studium-lehre/richtlinien-fuer-ausarbeitungen/vorlagen/
+
+% Dokumentenkopf 
+\documentclass[
+    11pt, % Schriftgr��e
+    DIV=10,
+    a4paper, % Papierformat
+    twoside, % einseitiges Dokument
+    titlepage, % es wird eine Titelseite verwendet
+    parskip=half, % Abstand zwischen Abs�tzen (halbe Zeile)
+    headings=normal, % Gr��e der �berschriften verkleinern
+    listof=totoc, % Verzeichnisse im Inhaltsverzeichnis auff�hren
+    bibliography=totoc, % Literaturverzeichnis im Inhaltsverzeichnis auff�hren
+    index=totoc, % Index im Inhaltsverzeichnis auff�hren
+    captions=tableheading, % Beschriftung von Tabellen unterhalb ausgeben
+    final % Status des Dokuments (final/draft)
+]{scrreprt}
+
+% Einbinden der Packages
+\input{Packages}
+
+% Einbinden der Meta-Informationen
+\input{Meta}
+
+% Erstellung der Verzeichnisse und Glossars aktivieren
+\makeindex
+\makenomenclature
+\makeglossaries 
+\glstoctrue 
+
+% Kopf- und Fu�zeilen, Seitenr�nder etc. anpassen
+\input{Seitenstil}
+
+% Eigene Definitionen f�r Silbentrennung laden
+\include{Silbentrennung}
+
+% Eigene LaTeX-Befehle laden
+\include{Befehle}
+
+% Hier beginnt das eigentliche Dokument
+\begin{document}
+\title{\titel}
+\author{\autor}
+
+% Setzt wie tief Abschnitte numeriert und ins Inhaltsverzeichnis
+% aufgenommen werden sollen, hier: bis inkl. SubSubSection (z.B. 1.1.1.1).
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% Aus Deckblatt und Abstract Seitenzahl entfernen
+\fancyfoot[OR]{}%
+\fancyfoot[EL]{}%
+\fancyfoot[OL]{}%
+\fancyfoot[ER]{}%
+
+% Deckblatt einbinden
+\include{Deckblatt}
+
+% Setzen des Papierformats f�r den Rest des Dokuments
+\newgeometry{left=3.5cm, right=2.5cm, top=2.9cm, bottom=2.9cm}
+
+% Bei finaler Fassung: Leere Seite als R�ckseite des Deckblatts 
+\ifthenelse{\boolean{final}}{\cleardoublepage}{} 
+
+% Selbstst�ndigkeitserkl�rung einbinden
+\ifthenelse{\boolean{projektarbeit}}{}{\input{Erklaerung}}
+
+% Bei finaler Fassung: Leere Seite als R�ckseite der Erkl�rung
+\ifthenelse{\boolean{projektarbeit}}{}{\ifthenelse{\boolean{final}}{\cleardoublepage}{}}
+
+
+% Bei finaler Fassung: Leere Seite als R�ckseite des Abstracts
+\ifthenelse{\boolean{final}}{\cleardoublepage}{}
+
+% Ab jetzt gibt es Seitenzahlen
+\fancyfoot[OR]{\pagemark}%
+\fancyfoot[EL]{\pagemark}%
+
+% Vor dem Hauptteil werden die Seiten in gro�en r�mischen Ziffern nummeriert.
+\pagenumbering{roman}
+
+% Verzeichnisse drucken
+\tableofcontents% Inhaltsverzeichnis
+
+% Wenn Abbildungs- und Tabellenverzeichnis auf die selbe Seite sollen: 
+\iftotalfigures\listoffigures\fi
+\begingroup 
+\let\clearpage\relax
+\vspace{1cm} 
+\iftotaltables\listoftables\fi
+\endgroup
+ 
+% Wenn Abbildungs- und Tabellenverzeichnis je auf einer eigenen Seite beginnen
+% sollen: 
+% \listoffigures % Abbildungsverzeichnis
+% \listoftables % Tabellenverzeichnis
+
+% Erstellen des Liste der Listings
+\renewcommand{\lstlistlistingname}{List of Listings}
+\iftotallstlistings\lstlistoflistings\fi
+
+% Abk�rzungsverzeichnis einbinden
+\input{Inhalt/Abkuerzungen}
+
+% F�r korrekte �berschrift in der Kopfzeile
+\clearpage\markboth{\nomname}{\nomname}
+
+% Drucken des Abk�rzungsverzeichnises
+\printnomenclature
+\label{cha:Abkuerzungsverzeichnis}
+ 
+% Arabische Seitenzahlen im Hauptteil 
+\ifthenelse{\boolean{final}}{\cleardoublepage}{\clearpage}
+\pagenumbering{arabic}
+
+% Die Inhaltskapitel aus "Inhalt.tex" einbinden
+\begin{spacing}{\zeilenabstandHauptteil}
+\input{Content}
+\end{spacing}
+
+
+\end{document}

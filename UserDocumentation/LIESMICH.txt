@@ -1,0 +1,105 @@
+#################################################################################################
+####  Formatvorlage f�r studentische Arbeiten der           #####################################
+####  Arbeitsgruppe Software Systems Engineering am         #####################################
+####  Institut f�r Informatik der Universit�t Hildesheim    #####################################
+#################################################################################################                                                                                                
+####  erstellt von Christopher Voges, 28.04.2016                                             ####
+####  https://sse.uni-hildesheim.de/studium-lehre/richtlinien-fuer-ausarbeitungen/vorlagen/  ####
+#################################################################################################
+
+##############################
+#  I. Bearbeiten des Inhalts #
+##############################
+
+1. Meta.tex
+Hier hinterlegen Sie Ihre pers�nlichen Daten, den Titel und die Art der Arbeit
+und die Namen Ihrer Betreuer.
+Weiterhin finden Sie hier zwei boolesche Variablen,
+welche sich auf die Formatierung der Arbeit auswirken:
+- 'projektarbeit' gibt an, ob die Eigenst�ndigkeitserkl�rung 
+  entfernt werden soll, da diese in Projektarbeiten nicht ben�tigt wird.
+- 'final' gibt an, ob Leerseiten f�r den zweiseitigen Druck,
+  eingef�gt werden sollen. 
+  Sp�testens f�r die finale Abgabe muss diese Variable auf 'true' gesetzt werden.
+
+2. Erklaerung.tex
+Die hier befindliche Eigenst�ndigkeitserkl�rung sollten Sie, wenn Sie keine 
+Projektarbeit schreiben, mit Ihrer Pr�fungsordnung abstimmen und ggf. ersetzen.
+
+3. Deckblatt.tex
+Das Deckblatt wird aus den Angaben in Meta.tex generiert.
+Bei besonders langen Titeln kann es jedoch sein, 
+dass das Deckblatt �ber mehrere Seiten geht.
+In diesem Fall k�nnen Sie die in den '\vspace{}'s definierten 
+vertikalen Abst�nde reduzieren, damit das Deckblatt auf eine Seite passt.
+
+4. Inhalt.tex
+�ber diese Datei wird bestimmt, welche anderen Tex-Dateien 
+den Hauptteil der Arbeit bilden.
+
+5. Anhang.tex
+�ber diese Datei wird bestimmt, welche anderen Tex-Dateien 
+den Anhang der Arbeit bilden. Ist kein Anhang vorhanden, m�ssen folgende
+Zeilen in 'Arbeit.tex' auskommentiert/entfernt werden:
+\begin{spacing}{\zeilenabstandAnhang}
+\begin{appendix}
+    \chapter{Anhang}
+    \label{sec:Anhang}
+    \input{Anhang}
+\end{appendix}
+\end{spacing}
+
+6. Inhalt/
+In diesem Ordner befindet sich der eigentliche Inhalt der Arbeit in Form 
+von Tex-Dateien, welche �ber 'Inhalt.tex' und 'Anhang.tex' inkludiert werden. 
+Ausnahmen hierzu finden sich unter 7. und 8. .
+
+7. Inhalt/Abkuerzungen.tex
+Hier k�nnen Abk�rzungen hinterlegt werden, aus den das Abk�rzungsverzeichnis
+generiert wird. Ist diese Datei leer (oder alles auskommentiert) wird kein 
+Abk�rzungsverzeichnis erzeugt. Eine weitere Anpassung f�r das Erzeugen des 
+Abk�rzungsverzeichnisses ist nicht n�tig. 
+
+8. Inhalt/Glossar.tex
+Hier k�nnen Glossareintr�ge hinterlegt werden, aus denen das Glossar
+generiert wird. Ist diese Datei leer (oder alles auskommentiert) wird kein 
+Glossar erzeugt. Das gilt auch, wenn kein Glossareintrag referenziert wird.
+Eine weitere Anpassung f�r das Erzeugen des Glossars ist nicht n�tig.
+
+9. Bibliographie.bib
+Hier werden die BibTex-Eintr�ge der verwendeten Literatur hinterlegt.
+Aus den referenzierten Eintr�gen wird das Literaturverzeichnis erzeugt.
+Der Stil der Zitate und des Literaturverzeichnis kann am Ende von 
+Arbeit.tex eingestellt werden.
+Wird kein Eintrag referenziert, wird kein Literaturverzeichnis erstellt.
+
+10. Befehle.tex
+Hier k�nnen Sie eigene LaTeX-Befehle hinterlegen.
+
+11. Packages.tex
+�ber diese Datei werden ben�tigte Packages importiert. Sollte Sie weitere 
+Packages ben�tigen, k�nnen Sie diese am Ende dieser Datei anf�gen.
+
+12. Seitenstil.tex
+Diese Datei gibt zusammen mit Teilen von 'Arbeit.tex' das Design der 
+Arbeit vor und muss/darf von Ihnen nicht ver�ndert werden.
+
+13. Silbentrennung.tex
+Soll LaTeX bestimmte W�rter auf bestimmte Weise (bei einem Zelenumbruch) 
+trennen, so k�nnen Sie dies hier hinterlegen.
+
+14. Ordner/
+In diesem Ordner befinden sich die Originale Ihrer selbst erstellten Grafiken.
+F�r das Importieren von Grafiken (selbst erstellt oder kopiert) bieten sich 
+die Dateiformate PDF und JPEG an. Diese Dateien k�nnen ebenfalls hier 
+hinterlegt werden.
+
+15. Listings/
+Hier k�nnen Sie Listings (Quellcode, Logdateien, ...) abspeichern 
+und als Listing in die Arbeit integrieren.
+
+16. Arbeit.tex
+Dies ist die Hauptdatei dieses Latex-Projekts. Sie bildet den Ausgang des 
+Build-Prozesses (s.u.) und darf bis auf die in 5. beschriebene Ausnahme 
+nicht ver�ndert werden. 
+

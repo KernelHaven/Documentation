@@ -1,0 +1,7 @@
+Figure, Listings und table labeling:
+
+Die Label-Bezeichnung, sollte einheitlich sein, damit der Zugriff auf diese via \ref{x:y} einfacher und �bersichtlicher geschieht.
+Daher folgendes Format:
+\label{type:name}
+type:= Was ist, figure oder listings oder tabelle
+name:= was es ist, z.B Arch1 f�r architektur  ggf. mit Nummerierung falls es mehere Abbildung der Art gibt.

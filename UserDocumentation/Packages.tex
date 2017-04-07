@@ -1,0 +1,128 @@
+
+% Umlaute
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp} % Euro-Zeichen etc.
+\usepackage{tabularx}
+
+% Schrift
+\usepackage{lmodern}
+\usepackage{relsize}
+
+% Einbinden von JPG-Grafiken erm�glichen
+\usepackage[dvips,final]{graphicx}
+
+% Erm�glichen mathematischer Symbole
+\usepackage{amsmath,amsfonts}
+
+% F�r die Definition der Zeilenabst�nde, Seitenr�nder etc.
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{todonotes}
+
+% URL-Unterst�tzung
+\usepackage{url}
+
+% Abk�rzungsverzeichnis 
+% Alles weitere hierzu in: "Inhalt\Abkuerzungen.tex".
+\usepackage[intoc]{nomencl}
+\let\abbrev\nomenclature
+\renewcommand{\nomname}{List of Abbreviations}
+\setlength{\nomlabelwidth}{.15\textwidth}
+
+% Erm�glicht Zitate
+\usepackage[square]{natbib}
+
+% PDF-Optionen -----------------------------------------------------------------
+\usepackage[
+    bookmarks, % Es werden Bookmarks verwendet
+    bookmarksopen=true, % Farbe von Bookmarks
+    colorlinks=true, % Farbe von Verkn�pfungen
+    linkcolor=black, % einfache interne Verkn�pfungen
+    anchorcolor=black, % Ankertext
+    citecolor=black, % Verweise auf Literaturverzeichniseintr�ge im Text
+    filecolor=black, % Verkn�pfungen, die lokale Dateien �ffnen
+    menucolor=black, % Acrobat-Men�punkte
+    urlcolor=black, % Farbe der URLs
+    plainpages=false, % zur korrekten Erstellung der Bookmarks
+    pdfpagelabels, % zur korrekten Erstellung der Bookmarks
+    hypertexnames=false, % zur korrekten Erstellung der Bookmarks
+    linktocpage, % Seitenzahlen anstatt Text im Inhaltsverzeichnis verlinken
+    pdfusetitle, % Erm�glicht das Setzen der Meta-Daten des erzeugten PDFs
+]{hyperref}
+% \renewcommand{\theHsection}{\thepart.section.\thesection}
+% \hypersetup{
+%     %pdftitle={\titel \untertitel},
+%     pdfauthor={\autor},
+%     pdfcreator={\autor}
+%     %pdfsubject={\titel \untertitel},
+%    % pdfkeywords={\titel \untertitel}
+% }
+
+% Wird f�r Teile der Formatierung des Deckblatts und die Verwendung von
+% Aufz�hlungen ben�tigt
+\usepackage{listings}
+\usepackage{color}
+%\definecolor{dkgreen}{rgb}{0,0.6,0}
+%\definecolor{gray}{rgb}{0.5,0.5,0.5}
+%\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{def}{
+  frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{green},
+  stringstyle=\color{gray},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+ % for the code listings in different colors
+\lstset{
+style=def
+}
+
+\lstdefinelanguage{properties}
+{
+  keywords={linux_source_tree, arch, ressource_dir, vm_extractor, cname, analysis, cname, plugins_dir}
+}
+
+\lstdefinelanguage{console}
+{
+    backgroundcolor=\color{black},
+    basicstyle={\color{white},\ttfamily}
+}
+
+%for the use of different colors
+\usepackage{xcolor}
+
+%to link between different documents
+\usepackage{xr}
+
+% fortlaufendes Durchnummerieren der Fu�noten
+\usepackage{chngcntr}
+
+% bei der Definition eigener Befehle ben�tigt
+\usepackage{ifthen}
+
+% sorgt daf�r, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
+\usepackage{xspace}
+
+% Erlaubt das Anpassen der Kopf- und Fu�zeilen
+\usepackage{fancyhdr}
+
+% Erlaubt das Anpassen der �berschriften
+\usepackage{titlesec}
+
+% F�r das Erstellen eines Glossars
+\usepackage[toc, automake, nonumberlist]{glossaries}
+
+\usepackage[figure,table,lstlisting]{totalcount}
+
+\usepackage{pdfpages} % für das inkludieren der PDF-javadoc
