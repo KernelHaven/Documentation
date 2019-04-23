@@ -1,5 +1,3 @@
-# KernelHaven Documentation
+# Deprecated
 
-Contains user and developer documentation for the KernelHaven infrastructure.
-The user documentation contains setup and execution of the infrastructure.
-The developer documentation covers the creation of new extractors and analyzes.
+Go to https://github.com/KernelHaven/KernelHaven/wiki instead.
